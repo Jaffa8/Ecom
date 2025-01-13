@@ -1,7 +1,7 @@
 import { Link, Stack, Tabs } from "expo-router";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { Icon } from "@/components/ui/icon";
-import { ShoppingCart } from "lucide-react-native";
+import { ShoppingCart, User } from "lucide-react-native";
 import { TouchableOpacity } from "react-native";
 import { useCart } from "@/Store/cartStore";
 import { Text } from "@/components/ui/text";
@@ -17,7 +17,16 @@ export default function layout() {
                  <Text italic bold>{cartItemNum}</Text>
                  </TouchableOpacity>
                  </Link>
-                ) }}
+                ),
+                headerLeft: () =>(
+                    <Link href="/(auth)/login" asChild>
+                    <TouchableOpacity
+                     >
+                     <Icon  as={User} />
+                     </TouchableOpacity>
+                     </Link>
+                    )
+             }}
             
                  >
                 <Stack.Screen 
